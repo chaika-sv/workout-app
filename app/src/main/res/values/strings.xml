@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Зарядка</string>
+    <string name="image">image</string>
+    <string name="dialog_exit">Вы уверены?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+</resources>
