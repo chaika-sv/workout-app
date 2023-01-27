@@ -29,13 +29,8 @@ class MainActivity : AppCompatActivity() {
 
         fLStartButton?.setOnClickListener {
 
-            var exitDialog = Dialog(this)
-            exitDialog.setContentView(R.layout.activity_dialog_custom_back_confirmation)
-            exitDialog.setTitle("Вы уверены?")
-            exitDialog.show()
-
-            //val intent = Intent(this, ExerciseActivity::class.java)
-            //startActivity(intent)
+            val intent = Intent(this, ExerciseActivity::class.java)
+            startActivity(intent)
         }
 
     }

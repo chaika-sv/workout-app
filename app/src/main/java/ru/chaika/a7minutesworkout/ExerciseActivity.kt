@@ -1,5 +1,6 @@
 package ru.chaika.a7minutesworkout
 
+import android.app.Dialog
 import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
@@ -8,9 +9,12 @@ import android.os.CountDownTimer
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.View
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import ru.chaika.a7minutesworkout.databinding.ActivityDialogCustomBackConfirmationBinding
 import ru.chaika.a7minutesworkout.databinding.ActivityExerciseBinding
 import java.util.*
 import kotlin.collections.ArrayList
@@ -226,6 +230,25 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private fun speakOut(text: String) {
         tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
+    }
+
+    override fun onBackPressed() {
+        val exitDialog = Dialog(this)
+
+        exitDialog.setContentView(R.layout.activity_dialog_custom_back_confirmation)
+
+        val yesBtn : Button = exitDialog.findViewById(R.id.btnExitYes)
+        yesBtn.setOnClickListener{
+            this@ExerciseActivity.finish()
+            exitDialog.dismiss()
+        }
+
+        val noBtn : Button = exitDialog.findViewById(R.id.btnExitNo)
+        noBtn.setOnClickListener{
+            exitDialog.dismiss()
+        }
+
+        exitDialog.show()
     }
 
 }
